@@ -58,43 +58,24 @@ function syncIframeFrame() {
 
   const rect = root.getBoundingClientRect();
   frame.setAttribute('allowtransparency', 'true');
-  frame.style.width = `${Math.ceil(rect.width)}px`;
+  frame.style.width = '100%';
   frame.style.maxWidth = '100%';
   frame.style.height = `${Math.ceil(rect.height)}px`;
   frame.style.display = 'block';
-  frame.style.margin = '0';
+  frame.style.margin = '0 auto';
   frame.style.background = 'transparent';
   frame.style.backgroundColor = 'transparent';
   frame.style.border = '0';
   frame.style.boxShadow = 'none';
   frame.style.overflow = 'hidden';
-  frame.style.position = 'relative';
-  frame.style.left = '0px';
 
   let parent = frame.parentElement;
-  let centeringParent: HTMLElement | null = null;
   for (let depth = 0; parent && depth < 8; depth += 1) {
     parent.style.background = 'transparent';
     parent.style.backgroundColor = 'transparent';
     parent.style.boxShadow = 'none';
     parent.style.textAlign = 'center';
-    if (!centeringParent && parent.getBoundingClientRect().width > rect.width + 40) {
-      centeringParent = parent;
-    }
-    if (depth === 0) {
-      parent.style.display = 'flex';
-      parent.style.justifyContent = 'center';
-      parent.style.alignItems = 'flex-start';
-      parent.style.width = '100%';
-    }
     parent = parent.parentElement;
-  }
-
-  if (centeringParent) {
-    const frameRect = frame.getBoundingClientRect();
-    const parentRect = centeringParent.getBoundingClientRect();
-    const targetLeft = parentRect.left + (parentRect.width - frameRect.width) / 2;
-    frame.style.left = `${Math.round(targetLeft - frameRect.left)}px`;
   }
 }
 
@@ -105,8 +86,8 @@ function ensureMeta() {
   document.documentElement.style.backgroundColor = 'transparent';
   document.body.style.background = 'transparent';
   document.body.style.backgroundColor = 'transparent';
-  document.body.style.width = 'fit-content';
-  document.body.style.margin = '0 auto';
+  document.body.style.width = '100%';
+  document.body.style.margin = '0';
 
   const description =
     document.querySelector<HTMLMetaElement>('meta[name="description"]') ?? document.createElement('meta');
