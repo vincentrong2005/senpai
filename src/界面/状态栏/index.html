@@ -1,0 +1,67 @@
+<head></head>
+<body>
+  <main id="senpai-status-root" class="senpai-status" aria-labelledby="senpai-status-title">
+    <section class="senpai-status__shell">
+      <h1 id="senpai-status-title" class="senpai-status__title">状态栏</h1>
+
+      <div class="senpai-status__layout">
+        <div class="senpai-status__left">
+          <header class="senpai-status__topbar" aria-label="时间与地点">
+            <div class="senpai-status__time">
+              <span class="senpai-status__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M12 7v5l3.2 1.9" />
+                  <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+              </span>
+              <span id="senpai-status-time" class="senpai-status__time-value"></span>
+              <span id="senpai-status-weekday" class="senpai-status__weekday"></span>
+            </div>
+            <div class="senpai-status__place">
+              <span class="senpai-status__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M20 10c0 5.5-8 11-8 11S4 15.5 4 10a8 8 0 1 1 16 0Z" />
+                  <path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                </svg>
+              </span>
+              <span id="senpai-status-location"></span>
+            </div>
+          </header>
+
+          <button id="senpai-status-portrait" class="senpai-status__portrait" type="button" aria-label="随机切换立绘">
+            <img id="senpai-status-portrait-image" class="senpai-status__portrait-image" alt="前辈立绘" />
+          </button>
+        </div>
+
+        <section class="senpai-status__meter-panel" aria-labelledby="senpai-status-meter-title">
+          <div class="senpai-status__meter-heading">
+            <p class="senpai-status__kicker">主角状态</p>
+            <h2 id="senpai-status-meter-title">精液存量</h2>
+            <output id="senpai-status-semen-output" class="senpai-status__meter-number" for="senpai-status-semen-fill">
+              0%
+            </output>
+          </div>
+
+          <div
+            id="senpai-status-semen-meter"
+            class="senpai-status__meter"
+            role="meter"
+            aria-label="主角精液存量"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+            aria-orientation="vertical"
+          >
+            <div id="senpai-status-semen-fill" class="senpai-status__meter-fill"></div>
+            <div class="senpai-status__meter-glass" aria-hidden="true"></div>
+          </div>
+
+          <div class="senpai-status__meter-scale" aria-hidden="true">
+            <span>盈满</span>
+            <span>空</span>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>

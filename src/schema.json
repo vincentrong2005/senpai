@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "时间": {
+      "type": "string"
+    },
+    "星期": {
+      "type": "string"
+    },
+    "地点": {
+      "type": "string"
+    },
+    "精液存量": {
+      "type": "number"
+    },
+    "已完成的性爱地点": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "时间",
+    "星期",
+    "地点",
+    "精液存量",
+    "已完成的性爱地点"
+  ]
+}
